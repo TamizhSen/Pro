@@ -39,6 +39,7 @@ public class DonorToReceiverController {
 		model.addAttribute("userdeatils", userDetails);
 		model.addAttribute("detailsUpdate",userDetails);
 		session.setAttribute("userName", userName);
+		session.setAttribute("userdeatils", userDetails);
 		if(userDetails == null) {
 			model.addAttribute("error","invalid username or password");
 		}
@@ -105,8 +106,14 @@ public class DonorToReceiverController {
 		return bool?"success":"FAIL";
 	}
 	@RequestMapping(value="message")
-	public String message(Model model) {
+	public String message(Model model,HttpSession session) {
+		try {
+			String userName = session.getAttribute("userName").toString();
+			model.addAttribute("userName",userName);
 		model.addAttribute("message",new ReceiverMessage());
+		}catch (Exception e) {
+			return "index";
+		}
 		return "reciverPost";
 	}
 	@RequestMapping(value="receiverMessage", method=RequestMethod.POST)
@@ -114,12 +121,18 @@ public class DonorToReceiverController {
 			HttpSession session,HttpServletRequest request) {
 		
 		try {
+			
+			if(receiverMessage.getName() == null || receiverMessage.getMessage() == null || 
+					receiverMessage.getMessage().trim() =="" || receiverMessage.getName().trim() == "" ) {
+				model.addAttribute("posted","Message and Name are mandatory fields");
+				return "reciverPost";
+			}
 			String userName = session.getAttribute("userName").toString();
 			String category = request.getParameter("category");
 			receiverMessage.setUsername(userName);
 			receiverMessage.setCategory(category);
 			if(donorToReceiverService.postMessage(receiverMessage)) {
-				model.addAttribute("posted","Message posted successfilly");
+				model.addAttribute("posted","Message posted successfully");
 			}else {
 				model.addAttribute("posted","Internal server error please try again!!");
 			}

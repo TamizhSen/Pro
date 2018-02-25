@@ -43,6 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     					<li><i class="fa fa-user" aria-hidden="true"></i>${userdeatils.firstName}</li>
  					<li><i class="fa fa-window-close" aria-hidden="true"> </i><a href="logout">logout</a></li>
  					 </c:when>
+ 					 
  					<c:otherwise>
  					<li><i class="fa fa-user" aria-hidden="true"></i>${userdeatils.email}
  					</li>
@@ -52,6 +53,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   					</c:otherwise>
 					</c:choose>
 					</c:if>
+					<c:if test="${sessionScope.userdeatils ne null and userdeatils eq null}">
+					<c:choose>
+ 					 <c:when test="${sessionScope.userdeatils.userName ne null}">
+    					<li><i class="fa fa-user" aria-hidden="true"></i>${sessionScope.userdeatils.userName}</li>
+ 					<li><i class="fa fa-window-close" aria-hidden="true"> </i><a href="logout">logout</a></li>
+ 					 </c:when>
+ 					<c:otherwise>
+ 					<li><i class="fa fa-user" aria-hidden="true"></i>${sessionScope.userdeatils.email}
+ 					</li>
+ 					<li><i class="fa fa-window-close" aria-hidden="true"> </i><a href="logout">logout</a></li>
+ 					 
+    					
+  					</c:otherwise>
+					</c:choose>
+					</c:if>
+					
+ 					 
 					
 					
 					
@@ -156,7 +174,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<span><input type="submit" value="Submit" class="myButton"></span>
 							  </div>
 					    </div>
-					    <div class="clearfix"><c:if test="${posted ne null}">${posted }</c:if></div>
+					    <div class="clearfix"><c:if test="${posted ne null}"><font color="red">${posted }</font></c:if></div>
 						</form:form>
 				  </div>
 			</div>
