@@ -1,3 +1,9 @@
 # Pro
 
-This file consists of Assignment submission for web health informatics, The prototype has been created and the link has been shared.along with this document.
+The Project deals with Donor2Receiver, here we allow the donor to provide the receiver with Blood,Organ,Tissues.
+
+Requirements
+1.Java 1.8
+2.Tomcat 9
+3.MySQL
+
