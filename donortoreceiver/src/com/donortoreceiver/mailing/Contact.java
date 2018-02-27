@@ -57,7 +57,7 @@ public class Contact {
 				  new javax.mail.Authenticator() {
 					protected PasswordAuthentication getPasswordAuthentication() {
 						
-						return new PasswordAuthentication("nulaka.satish@gmail.com","Satish@19");
+						return new PasswordAuthentication("donortoreceiver@gmail.com","donor123");
 					}
 				  });
 	}
