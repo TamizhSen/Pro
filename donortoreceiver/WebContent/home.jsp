@@ -90,7 +90,7 @@
 			 <div class="header_left">
 				<ul>
 					<li><i class="fa fa-map-marker" aria-hidden="true"></i> Thunder Bay, Canada </li>
-					<li><i class="fa fa-phone" aria-hidden="true"></i> +(1) 807 123 1234</li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i> +(1) 807 356 4561</li>
 					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:donortoreceiver@gmail.com">donortoreceiver@gmail.com</a></li>
 					<c:if test="${userdeatils ne null}">
 					<c:choose>

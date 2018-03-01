@@ -36,7 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<ul>
 					<li><i class="fa fa-map-marker" aria-hidden="true"></i> Thunder Bay, Canada </li>
 					<li><i class="fa fa-phone" aria-hidden="true"></i> +(1) 807 356 4561</li>
-					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:donor2receiver@gmail.com">donor2receiver@gmail.com</a></li>
+					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:donortoreceiver@gmail.com">donortoreceiver@gmail.com</a></li>
 					<c:if test="${userdeatils ne null}">
 					<c:choose>
 					<c:when test="${userdeatils.firstName ne null}">
