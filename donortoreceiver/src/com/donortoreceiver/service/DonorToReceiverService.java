@@ -67,5 +67,9 @@ public class DonorToReceiverService {
 		
 		return donorToReceiverDao.postMessage(receiverMessage);
 	}
+	public boolean updatePassword(String password, String userName) {
+		
+		return donorToReceiverDao.updatePassword(password,userName);
+	}
 
 }

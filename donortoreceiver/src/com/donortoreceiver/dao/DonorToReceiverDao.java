@@ -115,12 +115,13 @@ public class DonorToReceiverDao implements IDonorToReceiverDao {
 	@Override
 	public String forgotPassword(String userName) {
 		String password=randomStringGenerator.generateString();
-		int i=0;
-		i=updatePassword(userName, password);
+		boolean bool=false;
+		updatePassword(userName, password);
 		
-		return i==1?password:null;
+		return bool?password:null;
 	}
-	private int updatePassword(String userName,String password) {
+	@Override
+	public boolean updatePassword(String userName,String password) {
 		int i=0;
 		String sql="update login_master set password=? where user_name=?";
 		try {
@@ -133,7 +134,7 @@ public class DonorToReceiverDao implements IDonorToReceiverDao {
 			e.printStackTrace();
 		}
 		
-		return i;
+		return i>0?true:false;
 	}
 	@Override
 	public Boolean postMessage(ReceiverMessage receiverMessage) {

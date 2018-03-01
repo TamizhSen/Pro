@@ -17,6 +17,59 @@
 		function hideURLbar() {
 			window.scrollTo(0, 1);
 		}
+		function updatePassword() {
+			
+			var password = document.getElementById("psw").value;
+			alert('inside'+password);
+			var rpt = document.getElementById("rpt").value;
+			alert('inside'+rpt)
+			if (password==null || rpt==null) {
+				document.getElementById('passwordUpdated').innerHTML = 'Both the fields are mandatory'
+				return;
+			}
+			if (password=='' || rpt=='') {
+				document.getElementById('passwordUpdated').innerHTML = 'Both the fields are mandatory'
+				return;
+			}
+			
+			if (password != rpt) {
+				document.getElementById('passwordUpdated').innerHTML = 'Password and repet password should be same'
+					return;
+			}
+			
+			
+			$.ajax({
+				type : "POST",
+				url : "updatePassword",
+				data : {
+					"password" : password
+					
+				},
+				beforeSend : function() {
+					
+				},
+				success : function(data) {
+					if (data == "FAIL") {
+						/* $('#alertModal').find('.modal-body p').text(
+						'unable to process the request');
+				$('#alertModal').modal('show'); */
+				document.getElementById('passwordUpdated').innerHTML = 'unable to process the request'
+						
+					} else {
+						/*myModalF */
+						document.getElementById('passwordUpdated').innerHTML = 'Updated successfully'
+						
+					}
+				},
+				error : function(request, status, error) {
+					/* $('#alertModal').find('.modal-body p').text(
+					'The request failed:'+ request.responseText);
+			$('#alertModal').modal('show'); */
+					alert("The request failed: " + request.responseText);
+				}
+			});
+
+		}
 	</script>
 	<!--//tags -->
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -36,7 +89,7 @@
 				<ul>
 					<li><i class="fa fa-map-marker" aria-hidden="true"></i> Thunder Bay, Canada </li>
 					<li><i class="fa fa-phone" aria-hidden="true"></i> +(1) 807 123 1234</li>
-					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:donor2receiver@gmail.com">donor2receiver@gmail.com</a></li>
+					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:donortoreceiver@gmail.com">donortoreceiver@gmail.com</a></li>
 					<c:if test="${userdeatils ne null}">
 					<c:choose>
 					<c:when test="${userdeatils.firstName ne null}">
@@ -98,6 +151,8 @@
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage accounts <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li><a href="#" data-toggle="modal" data-target="#myModalL">Update Profile</a></li>										
+										<li class="divider"></li>
+										<li><a href="#" data-toggle="modal" data-target="#myModalP">Update Password</a></li>	
 										<li class="divider"></li>
 										<li><a href="#" data-toggle="modal" data-target="#">Subscriptions</a></li>
 										<li class="divider"></li>
@@ -659,24 +714,22 @@
 			</div>
 		</div>
 <!-- Login -->
-	<!-- Sign up -->
-		<div class="modal video-modal fade" id="myModalS" tabindex="-1" role="dialog" aria-labelledby="myModal">
+	<!-- Update Password-->
+		<div class="modal video-modal fade" id="myModalP" tabindex="-1" role="dialog" aria-labelledby="myModal">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						Sign Up
+						Update Password
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
 					</div>
 						<div class="modal-body">
 						<p>
-							<label for="email"><b>Email</b></label>
-							<input type="text" placeholder="Enter Email" name="email" required><br><br>
 							<label for="psw"><b>Password</b></label>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
-							<input type="password" placeholder=" Enter Password" name="psw" required><br><br>
+							<input type="password" placeholder=" Enter Password" name="psw" id="psw" required><br><br>
 							<label for="psw-repeat"><b>Repeat Password</b></label>&nbsp &nbsp
-							<input type="password" placeholder=" Repeat Password" name="psw-repeat" required>					
-							<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-							<p><button type="submit" class="">Sign Up</button>
+							<input type="password" placeholder=" Repeat Password" name="psw-repeat" id="rpt" required>	
+							<p><label id="passwordUpdated"></label></p>
+							<p><button type="submit" onclick="javascript:updatePassword()" class="">Sign Up</button>
 						</P>						
 					</div>
 				</div>

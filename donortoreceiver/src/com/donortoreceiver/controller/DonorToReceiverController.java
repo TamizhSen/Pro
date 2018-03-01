@@ -145,4 +145,15 @@ public class DonorToReceiverController {
 		}
 		return "reciverPost";
 	}
+	@RequestMapping(value="updatePassword",method=RequestMethod.POST)
+	@ResponseBody
+	public String updatePassword(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		
+		String password = request.getParameter("password");
+		String userName = session.getAttribute("userName").toString();
+		System.out.println("inisde controller : "+password +" "+userName);
+		boolean bool = donorToReceiverService.updatePassword(userName,password);
+		
+		return bool?"success":"FAIL";
+	}
 }

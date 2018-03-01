@@ -22,5 +22,6 @@ public interface IDonorToReceiverDao {
 	public List<Transactions> getContatcedList(String userName);
 	public String forgotPassword(String userName);
 	public Boolean postMessage(ReceiverMessage receiverMessage);
+	public boolean updatePassword(String password, String userName);
 	
 }

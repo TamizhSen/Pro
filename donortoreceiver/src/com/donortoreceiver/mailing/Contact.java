@@ -65,9 +65,9 @@ public class Contact {
 		boolean bool =false;
 		Session session = getAuthentication(getMailingProperties());
 		try {
-
+			System.out.println("authentication.getUserName() : "+authentication.getUserName());
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress(authentication.getUserName()));
+			message.setFrom(new InternetAddress("donortoreceiver@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO,
 				InternetAddress.parse(to));
 			message.setSubject(subject);

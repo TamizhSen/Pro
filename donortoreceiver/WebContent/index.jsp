@@ -71,11 +71,11 @@
 						/* $('#alertModal').find('.modal-body p').text(
 						'unable to process the request');
 				$('#alertModal').modal('show'); */
-				document.getElementById('emailMessage').innerHTML = 'unable to process the request'
+				document.getElementById('emailMessageOne').innerHTML = 'unable to process the request'
 						
 					} else {
 						/*myModalF */
-						document.getElementById('emailMessage').innerHTML = 'SignUp successfull please sign in'
+						document.getElementById('emailMessageOne').innerHTML = 'SignUp successfull please sign in'
 						
 					}
 				},
@@ -107,7 +107,7 @@
 				<ul>
 					<li><i class="fa fa-map-marker" aria-hidden="true"></i> Thunder Bay, Canada </li>
 					<li><i class="fa fa-phone" aria-hidden="true"></i> +(1) 807 123 1234</li>
-					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:donor2receiver@gmail.com ">donor2receiver@gmail.com </a></li>
+					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:donortoreceiver@gmail.com">donortoreceiver@gmail.com</a></li>
 				</ul>
 			</div>
 			<div class="header_right">
@@ -650,7 +650,7 @@
 							<label for="psw-repeat"><b>Repeat Password</b></label>&nbsp &nbsp
 							<input type="password" placeholder=" Repeat Password" name="psw-repeat" required>					
 							<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-							<p><label id="emailMessage"></label></p>
+							<p><label id="emailMessageOne"></label></p>
 							<p><button type="submit" onclick="javascript:sendSignup()"class="">Sign Up</button>
 						</P>
 											
