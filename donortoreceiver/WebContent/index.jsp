@@ -34,11 +34,11 @@
 						'unable to process the request');
 				$('#alertModal').modal('show'); */
 				document.getElementById('emailMessage').innerHTML = 'unable to process the request'
-						
+					setTimeout("$('#myModalF').modal('hide');",3000);
 					} else {
 						/*myModalF */
 						document.getElementById('emailMessage').innerHTML = 'Password sent to your email!!'
-						
+							setTimeout("$('#myModalF').modal('hide');",3000);
 					}
 				},
 				error : function(request, status, error) {
@@ -72,11 +72,11 @@
 						'unable to process the request');
 				$('#alertModal').modal('show'); */
 				document.getElementById('emailMessageOne').innerHTML = 'unable to process the request'
-						
+					setTimeout("$('#myModalS').modal('hide');",3000);
 					} else {
 						/*myModalF */
 						document.getElementById('emailMessageOne').innerHTML = 'SignUp successfull please sign in'
-						
+							setTimeout("$('#myModalS').modal('hide');",3000);
 					}
 				},
 				error : function(request, status, error) {

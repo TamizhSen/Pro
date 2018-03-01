@@ -116,7 +116,7 @@ public class DonorToReceiverDao implements IDonorToReceiverDao {
 	public String forgotPassword(String userName) {
 		String password=randomStringGenerator.generateString();
 		boolean bool=false;
-		updatePassword(userName, password);
+		bool = updatePassword(userName, password);
 		
 		return bool?password:null;
 	}

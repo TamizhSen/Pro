@@ -20,9 +20,9 @@
 		function updatePassword() {
 			
 			var password = document.getElementById("psw").value;
-			alert('inside'+password);
+			
 			var rpt = document.getElementById("rpt").value;
-			alert('inside'+rpt)
+			
 			if (password==null || rpt==null) {
 				document.getElementById('passwordUpdated').innerHTML = 'Both the fields are mandatory'
 				return;
@@ -54,10 +54,12 @@
 						'unable to process the request');
 				$('#alertModal').modal('show'); */
 				document.getElementById('passwordUpdated').innerHTML = 'unable to process the request'
+					setTimeout("$('#myModalP').modal('hide');",3000);
 						
 					} else {
 						/*myModalF */
 						document.getElementById('passwordUpdated').innerHTML = 'Updated successfully'
+							setTimeout("$('#myModalP').modal('hide');",3000);
 						
 					}
 				},
@@ -664,7 +666,7 @@
 								</tr>
 								<tr>
 									<td><span
-										style="margin: 15px 54px 10px 0px; display: inline-block;">city
+										style="margin: 15px 54px 10px 0px; display: inline-block;">City
 								 </span></td>
 									<td><form:input path="city" type="text" value="${detailsUpdate.city}"
 											class="form-control"
@@ -675,7 +677,7 @@
 								</tr>
 								<tr>
 									<td><span
-										style="margin: 15px 54px 10px 0px; display: inline-block;">country
+										style="margin: 15px 54px 10px 0px; display: inline-block;">Country
 								 </span></td>
 									<td><form:input path="country" type="text" value="${detailsUpdate.country}"
 											class="form-control"
@@ -729,7 +731,7 @@
 							<label for="psw-repeat"><b>Repeat Password</b></label>&nbsp &nbsp
 							<input type="password" placeholder=" Repeat Password" name="psw-repeat" id="rpt" required>	
 							<p><label id="passwordUpdated"></label></p>
-							<p><button type="submit" onclick="javascript:updatePassword()" class="">Sign Up</button>
+							<p><button type="submit" onclick="javascript:updatePassword()" class="">Update</button>
 						</P>						
 					</div>
 				</div>
