@@ -114,7 +114,7 @@
 			</div>
 			<div class="header_right">
 				<ul class="forms_right">					
-					<li><a href="#"> Donate  </a> </li>
+					<li><a href="donate"> Donate  </a> </li>
 					<li><a href="message"> Receive  </a> </li>
 				</ul>
 			</div>

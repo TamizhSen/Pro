@@ -3,10 +3,14 @@
  */
 package com.donortoreceiver.beans;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * @author Satish reddy
  *
  */
+@XmlRootElement(name = "receiver")
 public class ReceiverMessage {
 
 	private String message;
@@ -14,6 +18,23 @@ public class ReceiverMessage {
 	private String name;
 	private String username;
 	private String category;
+	private String id;
+	private String approved;
+	
+	public String getApproved() {
+		return approved;
+	}
+	@XmlElement
+	public void setApproved(String approved) {
+		this.approved = approved;
+	}
+	public String getId() {
+		return id;
+	}
+	@XmlElement
+	public void setId(String id) {
+		this.id = id;
+	}
 	/**
 	 * @return the message
 	 */
@@ -23,6 +44,7 @@ public class ReceiverMessage {
 	/**
 	 * @param message the message to set
 	 */
+	 @XmlElement
 	public void setMessage(String message) {
 		this.message = message;
 	}
@@ -35,6 +57,7 @@ public class ReceiverMessage {
 	/**
 	 * @param phone the phone to set
 	 */
+	 @XmlElement
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
@@ -47,6 +70,7 @@ public class ReceiverMessage {
 	/**
 	 * @param name the name to set
 	 */
+	 @XmlElement
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -59,6 +83,7 @@ public class ReceiverMessage {
 	/**
 	 * @param username the username to set
 	 */
+	 @XmlElement
 	public void setUsername(String username) {
 		this.username = username;
 	}
@@ -71,6 +96,7 @@ public class ReceiverMessage {
 	/**
 	 * @param category the category to set
 	 */
+	 @XmlElement
 	public void setCategory(String category) {
 		this.category = category;
 	}
@@ -82,6 +108,7 @@ public class ReceiverMessage {
 		return "ReceiverMessage [message=" + message + ", phone=" + phone + ", name=" + name + ", username=" + username
 				+ ", category=" + category + "]";
 	}
+	
 	
 
 
