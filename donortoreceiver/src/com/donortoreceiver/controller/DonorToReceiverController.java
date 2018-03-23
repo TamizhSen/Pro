@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.donortoreceiver.beans.ReceiverMessage;
 import com.donortoreceiver.beans.UserDetails;
@@ -51,12 +52,6 @@ public class DonorToReceiverController {
 	public String logout(HttpSession session){
 		session.invalidate();
 		return"index";
-	}
-	@RequestMapping(value="donate")
-	public String donate(HttpServletRequest request,HttpServletResponse response,Model model) {
-		List<ReceiverMessage> list = donorToReceiverService.getReceiverMessages("YES");
-		System.out.println("list : "+list);
-		return "home";
 	}
 	@RequestMapping(value="signUp", method=RequestMethod.POST)
 	@ResponseBody
@@ -164,5 +159,21 @@ public class DonorToReceiverController {
 		
 		return bool?"success":"FAIL";
 	}
+	
+	
+	
+	@RequestMapping(value="/posts",method = RequestMethod.GET)
+	    public String listPosts(Model model)
+	    {System.out.println("ndnfk");
+	 
+
+	        List postsList = donorToReceiverService.getpostMessage();
+	        System.out.println(postsList);
+	        model.addAttribute("postsList", postsList);
+	        
+	        return"posts";
+	    }
+	
+	
 	
 }
