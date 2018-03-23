@@ -4,6 +4,7 @@
 package com.donortoreceiver.service;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -70,6 +71,10 @@ public class DonorToReceiverService {
 	public boolean updatePassword(String password, String userName) {
 		
 		return donorToReceiverDao.updatePassword(password,userName);
+	}
+	public List<ReceiverMessage> getReceiverMessages(String string) {
+		// TODO Auto-generated method stub
+		return donorToReceiverDao.getReceiverMessages(string);
 	}
 
 }

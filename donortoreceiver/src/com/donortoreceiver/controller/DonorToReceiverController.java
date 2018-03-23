@@ -3,6 +3,8 @@
  */
 package com.donortoreceiver.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -49,6 +51,12 @@ public class DonorToReceiverController {
 	public String logout(HttpSession session){
 		session.invalidate();
 		return"index";
+	}
+	@RequestMapping(value="donate")
+	public String donate(HttpServletRequest request,HttpServletResponse response,Model model) {
+		List<ReceiverMessage> list = donorToReceiverService.getReceiverMessages("YES");
+		System.out.println("list : "+list);
+		return "home";
 	}
 	@RequestMapping(value="signUp", method=RequestMethod.POST)
 	@ResponseBody
@@ -156,4 +164,5 @@ public class DonorToReceiverController {
 		
 		return bool?"success":"FAIL";
 	}
+	
 }

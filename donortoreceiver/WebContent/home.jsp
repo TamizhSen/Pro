@@ -114,7 +114,7 @@
 			</div>
 			<div class="header_right">
 				<ul class="forms_right">					
-					<li><a href="#"> Donate  </a> </li>
+					<li><a href="donate"> Donate  </a> </li>
 					<li><a href="message"> Receive  </a> </li>
 				</ul>
 			</div>
@@ -189,7 +189,7 @@
 						<h3>With a Touch of <span>Kindness.</span></h3>
 						<div class="header_left">
 							<ul class="forms_right">
-								<li><a href="#"> Donate  </a> </li>
+								<li><a href="donate"> Donate  </a> </li>
 							</ul>
 						</div>
 						<div class="header_right">
@@ -208,7 +208,7 @@
 						<h3>With a Touch of <span>Kindness.</span></h3>
 						<div class="header_left">
 							<ul class="forms_right">
-								<li><a href="#"> Donate  </a> </li>
+								<li><a href="donate"> Donate  </a> </li>
 							</ul>
 						</div>
 						<div class="header_right">
@@ -246,7 +246,7 @@
 						<h3>With a Touch of <span>Kindness.</span></h3>
 						<div class="header_left">
 							<ul class="forms_right">
-								<li class><a href="#"> Donate  </a> </li>
+								<li class><a href="donate"> Donate  </a> </li>
 							</ul>
 						</div>
 						<div class="header_right">
