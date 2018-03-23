@@ -70,8 +70,7 @@ body {
       <h5>Email: ${post.username}</h5>
       <h5>Phone: ${post.phone}</h5>  
         <p>${post.message}</p>
-                 
-                 
+        <input type="button" onclick="location.href='ContactReceiver.jsp';" value="Select" /> 
      </div>
       </c:forEach>
       
