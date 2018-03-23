@@ -7,14 +7,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.donortoreceiver.beans.Donor;
 import com.donortoreceiver.beans.ReceiverMessage;
 import com.donortoreceiver.beans.Transactions;
 import com.donortoreceiver.beans.UserDetails;
-import com.donortoreceiver.mappers.ReceiverMessageMapper;
 import com.donortoreceiver.mappers.TransactionsMapper;
 import com.donortoreceiver.mappers.UserdetailsMapper;
 import com.donortoreceiver.utils.RandomStringGenerator;
@@ -31,6 +30,10 @@ public class DonorToReceiverDao implements IDonorToReceiverDao {
 	RandomStringGenerator randomStringGenerator;
 	@Override
 	public Boolean login(String userName, String password) {
+
+		
+
+
 		int count=0;
 		String query = "Select count(*) from login_master where user_name = ? and password=?";
 		try {
@@ -115,31 +118,6 @@ public class DonorToReceiverDao implements IDonorToReceiverDao {
 		return list;
 	}
 	@Override
-	public List<ReceiverMessage> getReceiverMessages(String all) {
-		List<ReceiverMessage> list = null;
-		String sql ="select idReceiver,category,message,username,name,phone,approved from receiver where approved=?";
-		try {
-			Object[] params = new Object[] {all};
-			list = jdbcTemplate.query(sql,new ReceiverMessageMapper(), params);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return list;
-	}
-	@Override
-	public List<ReceiverMessage> getReceiverMessages(String type,String all) {
-		List<ReceiverMessage> list = null;
-		String sql ="select idReceiver,category,message,username,name,phone,approved from receiver where category=? and approved=?";
-		try {
-			Object[] params = new Object[] {type,all};
-			list = jdbcTemplate.query(sql,new ReceiverMessageMapper(), params);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return list;
-	}
-	
-	@Override
 	public String forgotPassword(String userName) {
 		String password=randomStringGenerator.generateString();
 		boolean bool=false;
@@ -181,52 +159,15 @@ public class DonorToReceiverDao implements IDonorToReceiverDao {
 		return updated == 1? true:false;
 	}
 	@Override
-	public void insertTransaction(List<Transactions> LTransactions) {
-		try {
-			String sql ="INSERT INTO transactions (donor_name, receiver_details, category)"
-					+ " VALUES (?, ?, ?)"; 
-			Object[] params = null;
-			for(Transactions transactions:LTransactions) {
-				params = new Object[] {
-						transactions.getName(),transactions.getEmail(),transactions.getCategory()
-				};
-			jdbcTemplate.update(sql, params);
-			}
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
+	public List<ReceiverMessage> getAllPosts(){
 		
-	}
-	@Override
-	public void donated(List<Donor> donor) {
-		
-		try {
-			String sql ="INSERT INTO donor (username, category)"
-					+ " VALUES (?, ?, ?)"; 
-			Object[] params = null;
-			for(Donor lDonor:donor) {
-				params = new Object[] {
-						lDonor.getUserName(),lDonor.getCategory()
-				};
-			jdbcTemplate.update(sql, params);
-			}
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	@Override
-	public boolean updateReceiverMessage(List<String> ids) {
-		try {
-			String sql ="update receiver set approved=? where idReceiver=?";
-			for(String id : ids) {
-				jdbcTemplate.update(sql, new Object[] {"YES",id});
-			}
-		}catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
+		String sql = "SELECT * FROM receiver";
 	
+		List<ReceiverMessage> Lposts = jdbcTemplate.query(sql,
+				new BeanPropertyRowMapper(ReceiverMessage.class));
+		
+		System.out.println(Lposts);
+		return Lposts;
+	}
 
 }
