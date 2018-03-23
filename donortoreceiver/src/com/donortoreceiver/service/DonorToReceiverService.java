@@ -72,9 +72,9 @@ public class DonorToReceiverService {
 		
 		return donorToReceiverDao.updatePassword(password,userName);
 	}
-	public List<ReceiverMessage> getReceiverMessages(String string) {
-		// TODO Auto-generated method stub
-		return donorToReceiverDao.getReceiverMessages(string);
+public List<ReceiverMessage> getpostMessage() {
+		
+		return donorToReceiverDao.getAllPosts();
 	}
 
 }
