@@ -3,8 +3,6 @@
  */
 package com.donortoreceiver.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -157,11 +155,5 @@ public class DonorToReceiverController {
 		boolean bool = donorToReceiverService.updatePassword(userName,password);
 		
 		return bool?"success":"FAIL";
-	}
-	@RequestMapping(value="donate")
-	public String donate(HttpServletRequest request,HttpServletResponse response,Model model) {
-		List<ReceiverMessage> list = donorToReceiverService.getReceiverMessages("YES");
-		System.out.println("list : "+list);
-		return "home";
 	}
 }
