@@ -40,7 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
 			<div class="header_left">
 				<ul>
-					<li><i class="fa fa-map-marker" aria-hidden="true"></i> 1143 New York, USA</li>
+					<li><i class="fa fa-map-marker" aria-hidden="true"></i> 1143 Neww York, USA</li>
 					<li><i class="fa fa-phone" aria-hidden="true"></i> +(010) 221 918 811</li>
 					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
 				</ul>
