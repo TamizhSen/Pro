@@ -20,12 +20,13 @@ public class ReceiverMessageExtractor implements ResultSetExtractor<ReceiverMess
 	@Override
 	public ReceiverMessage extractData(ResultSet resultSet) throws SQLException, DataAccessException {
 		ReceiverMessage receiverMessage = new ReceiverMessage();
-		/*select idReceiver,category,message,updated,username,name,phone,approved from receiver where approved='YES';*/
+		/*idReceiver,category,message,name,phone,approved,username*/
 		try {
 			receiverMessage.setId(resultSet.getString(1));
 			receiverMessage.setCategory(resultSet.getString(2));
 			receiverMessage.setMessage(resultSet.getString(3));
 			receiverMessage.setName(resultSet.getString(4));
+			receiverMessage.setUsername(resultSet.getString(7));
 			receiverMessage.setPhone(resultSet.getString(5));
 			receiverMessage.setApproved(resultSet.getString(6));
 		} catch (Exception e) {

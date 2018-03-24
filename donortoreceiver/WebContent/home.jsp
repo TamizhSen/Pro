@@ -161,7 +161,7 @@
 										</ul>
 								</li>
 								<li><a href="#">My Donations</a></li>								
-								<li><a href="#">Received</a></li>								
+								<li><a href="helpReceived">Received</a></li>								
 								<li><a href="#">Help Others</a></li>
 								<!--  <li><a href="logout">logout</a></li> -->
 							</ul>

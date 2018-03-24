@@ -7,15 +7,19 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import com.donortoreceiver.beans.Donor;
 import com.donortoreceiver.beans.ReceiverMessage;
 import com.donortoreceiver.beans.Transactions;
 import com.donortoreceiver.beans.UserDetails;
+import com.donortoreceiver.mappers.ReceiverMessageMapper;
 import com.donortoreceiver.mappers.TransactionsMapper;
 import com.donortoreceiver.mappers.UserdetailsMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+
 import com.donortoreceiver.utils.RandomStringGenerator;
 
 /**
@@ -107,8 +111,8 @@ public class DonorToReceiverDao implements IDonorToReceiverDao {
 	public List<Transactions> getContatcedList(String userName) {
 		List<Transactions> list = null;
 		String sql="select trs.receiver_details  receiver,trs.category category,trs.contactedon contacted," + 
-				"um.first_name firstname,um.last_name lastname from transactions trs,users_master um" + 
-				"where um.user_name = trs.receiver_details and trs.donor_name=?";
+				"um.first_name firstname,um.lastname lastname,trs.donor_name donoremail from transactions trs,users_master um " + 
+				"where um.user_name = trs.donor_name and trs.receiver_details=?";
 		try {
 			Object[] params = new Object[] {userName};
 			list = jdbcTemplate.query(sql, new TransactionsMapper(),params);
@@ -159,15 +163,80 @@ public class DonorToReceiverDao implements IDonorToReceiverDao {
 		return updated == 1? true:false;
 	}
 	@Override
-	public List<ReceiverMessage> getAllPosts(){
+	public List<ReceiverMessage> getAllPosts(String all){
 		
-		String sql = "SELECT * FROM receiver";
-	
-		List<ReceiverMessage> Lposts = jdbcTemplate.query(sql,
-				new BeanPropertyRowMapper(ReceiverMessage.class));
-		
-		System.out.println(Lposts);
-		return Lposts;
+		List<ReceiverMessage> list = null;
+		String sql ="select idReceiver,category,message,name,phone,approved,username from receiver where approved=?";
+		try {
+			Object[] params = new Object[] {all};
+			list = jdbcTemplate.query(sql,new ReceiverMessageMapper(), params);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
-
+	@Override
+	public void insertTransaction(List<Transactions> LTransactions) {
+		try {
+			String sql ="INSERT INTO transactions (donor_name, receiver_details, category)"
+					+ " VALUES (?, ?, ?)"; 
+			Object[] params = null;
+			for(Transactions transactions:LTransactions) {
+				params = new Object[] {
+						transactions.getName(),transactions.getEmail(),transactions.getCategory()
+				};
+			jdbcTemplate.update(sql, params);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	@Override
+	public void donated(List<Donor> donor) {
+		
+		try {
+			String sql ="INSERT INTO donor (username, category)"
+					+ " VALUES (?, ?, ?)"; 
+			Object[] params = null;
+			for(Donor lDonor:donor) {
+				params = new Object[] {
+						lDonor.getUserName(),lDonor.getCategory()
+				};
+			jdbcTemplate.update(sql, params);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public boolean updateReceiverMessage(List<String> ids) {
+		try {
+			String sql ="update receiver set approved=? where idReceiver=?";
+			for(String id : ids) {
+				jdbcTemplate.update(sql, new Object[] {"YES",id});
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	@Override
+	public List<ReceiverMessage> getAllPosts(List<String> asList) {
+		List<ReceiverMessage> list = null;
+		
+		MapSqlParameterSource parameters = new MapSqlParameterSource();
+		parameters.addValue("ID", asList);
+		try {
+			String sql ="select idReceiver,category,message,name,phone,approved,username from receiver where idReceiver=(:ID)";
+			NamedParameterJdbcTemplate template = 
+				    new NamedParameterJdbcTemplate(jdbcTemplate.getDataSource());
+			list = template.query(sql, parameters, new ReceiverMessageMapper());
+		} catch (DataAccessException e) {
+		
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

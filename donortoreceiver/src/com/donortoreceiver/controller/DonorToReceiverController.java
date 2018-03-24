@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.donortoreceiver.beans.ReceiverMessage;
 import com.donortoreceiver.beans.UserDetails;
@@ -163,16 +162,46 @@ public class DonorToReceiverController {
 	
 	
 	@RequestMapping(value="/posts",method = RequestMethod.GET)
-	    public String listPosts(Model model)
-	    {System.out.println("ndnfk");
+	    public String listPosts(Model model){
 	 
-
 	        List postsList = donorToReceiverService.getpostMessage();
 	        System.out.println(postsList);
-	        model.addAttribute("postsList", postsList);
-	        
+	        model.addAttribute("postsList", postsList);       
 	        return"posts";
 	    }
+	@RequestMapping(value="contactReceiver",method=RequestMethod.POST)
+	public String contactReceiver(Model model,HttpServletRequest request,HttpServletResponse response) {
+		
+		try {
+			String[] str = request.getParameterValues("receiver");
+			String userName = request.getSession(true).getAttribute("userName").toString();
+			donorToReceiverService.contactReceivers(str, userName);
+			List postsList = donorToReceiverService.getpostMessage();
+			System.out.println(postsList);
+			model.addAttribute("postsList", postsList);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			return "index";
+		}   
+		return "posts";
+	}
+	@RequestMapping(value="helpReceived")
+	public String helpReceived (Model model, HttpServletRequest request,HttpServletResponse response) {
+		try {
+
+			String userName = request.getSession(true).getAttribute("userName").toString();
+			
+			List transactions = donorToReceiverService.getTransactins(userName);
+			System.out.println(transactions);
+			model.addAttribute("postsList", transactions);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			return "index";
+		}   
+		return "home";
+	}
 	
 	
 	

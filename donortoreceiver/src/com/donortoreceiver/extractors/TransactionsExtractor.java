@@ -25,6 +25,7 @@ public class TransactionsExtractor implements ResultSetExtractor<Transactions> {
 			transactions.setContactedOn(resultSet.getString("contacted"));
 			transactions.setEmail(resultSet.getString("receiver"));
 			transactions.setName(resultSet.getString("firstname")+" "+resultSet.getString("lastname"));
+			transactions.setDonorEmail(resultSet.getString("donoremail"));
 		} catch (Exception e) {
 			e.printStackTrace();
 			transactions = null;

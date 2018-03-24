@@ -12,6 +12,13 @@ public class Transactions {
 	private String category;
 	private String contactedOn;
 	private String email;
+	private String donorEmail;
+	public String getDonorEmail() {
+		return donorEmail;
+	}
+	public void setDonorEmail(String donorEmail) {
+		this.donorEmail = donorEmail;
+	}
 	/**
 	 * @return the name
 	 */

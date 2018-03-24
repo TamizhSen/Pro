@@ -5,6 +5,7 @@ package com.donortoreceiver.dao;
 
 import java.util.List;
 
+import com.donortoreceiver.beans.Donor;
 import com.donortoreceiver.beans.ReceiverMessage;
 import com.donortoreceiver.beans.Transactions;
 import com.donortoreceiver.beans.UserDetails;
@@ -23,7 +24,10 @@ public interface IDonorToReceiverDao {
 	public String forgotPassword(String userName);
 	public Boolean postMessage(ReceiverMessage receiverMessage);
 	public boolean updatePassword(String password, String userName);
-	
-	public List<ReceiverMessage> getAllPosts();
+	public void insertTransaction(List<Transactions> LTransactions);
+	public void donated(List<Donor> donor);
+	public boolean updateReceiverMessage(List<String> ids);
+	public List<ReceiverMessage> getAllPosts(String all);
+	public List<ReceiverMessage> getAllPosts(List<String> asList);
 	
 }

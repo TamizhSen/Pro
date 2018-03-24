@@ -81,4 +81,30 @@ public class Contact {
 		}
 		return bool;
 	}
+	public boolean sendMail(String[] to,String subject, String userName,String body) {
+		boolean bool =false;
+		Session session = getAuthentication(getMailingProperties());
+		try {
+			System.out.println("authentication.getUserName() : "+authentication.getUserName());
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("donortoreceiver@gmail.com"));
+			InternetAddress[] recipientAddress = new InternetAddress[to.length];
+			int counter = 0;
+			for (String recipient : to) {
+			    recipientAddress[counter] = new InternetAddress(recipient.trim());
+			    counter++;
+			}
+			message.setRecipients(Message.RecipientType.TO,
+				recipientAddress);
+			message.setSubject(subject);
+			message.setText(body);
+			Transport.send(message);
+			bool = true;
+		} catch (MessagingException e) {
+			bool=false;
+			e.printStackTrace();
+			
+		}
+		return bool;
+	}
 }

@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import com.donortoreceiver.beans.UserDetails;
 
 /**
- * @author nulak
+ * @author Satish Reddy
  *
  */
 @Component("donorToReceiverUtils")
@@ -34,7 +34,7 @@ public class DonorToReceiverUtils {
 	}
 	public String readTextFile(String fileName) throws IOException {
 		ClassLoader classLoader = getClass().getClassLoader();
-        String content = readfile(new File(classLoader.getResource("forgotPassword.txt").getFile()));
+        String content = readfile(new File(classLoader.getResource(fileName).getFile()));
         return content;
     }
 	

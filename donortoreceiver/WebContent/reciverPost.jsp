@@ -240,8 +240,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	</div>
 
-	<!-- //footer -->
-	<!-- bootstrap-modal-pop-up -->
+	<!-- //footer 
+	<!-- bootstrap-modal-pop-up 
 	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -262,7 +262,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 <!-- //bootstrap-modal-pop-up --> 
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
