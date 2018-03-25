@@ -155,9 +155,6 @@
 										<li><a href="#" data-toggle="modal" data-target="#myModalL">Update Profile</a></li>										
 										<li class="divider"></li>
 										<li><a href="#" data-toggle="modal" data-target="#myModalP">Update Password</a></li>	
-										<li class="divider"></li>
-										<li><a href="#" data-toggle="modal" data-target="#">Subscriptions</a></li>
-										<li class="divider"></li>
 										</ul>
 								</li>
 								<li><a href="#">My Donations</a></li>								
