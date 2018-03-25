@@ -144,8 +144,7 @@
 									<ul class="dropdown-menu">
 										<li><a href="#" data-toggle="modal" data-target="#myModalL">LOGIN</a></li>										
 										<li class="divider"></li>
-										<li><a href="#" data-toggle="modal" data-target="#myModalS">SIGN UP</a></li>
-										<li class="divider"></li>										
+										<li><a href="#" data-toggle="modal" data-target="#myModalS">SIGN UP</a></li>									
 									</ul>
 								</li>
 								<li><a href="about.jsp">About Us</a></li>								
