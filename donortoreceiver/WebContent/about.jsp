@@ -138,18 +138,17 @@
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<nav>
 							<ul class="nav navbar-nav">
-								<li><a href="index.jsp" class="active">Home</a></li>
+								<li><a href="index.jsp">Home</a></li>
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage accounts <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li><a href="#" data-toggle="modal" data-target="#myModalL">LOGIN</a></li>										
 										<li class="divider"></li>
-										<li><a href="#" data-toggle="modal" data-target="#myModalS">SIGN UP</a></li>
-										<li class="divider"></li>										
+										<li><a href="#" data-toggle="modal" data-target="#myModalS">SIGN UP</a></li>									
 									</ul>
 								</li>
-								<li><a href="#">About Us</a></li>								
-								<li><a href="#">Gallery</a></li>								
+								<li><a href="#" class="active">About Us</a></li>								
+								<li><a href="faq.jsp">FAQ</a></li>								
 								<li><a href="#" data-toggle="modal" data-target="#myModalCon">Contact Us</a></li>								
 							</ul>
 						</nav>
@@ -246,9 +245,125 @@
 	</div>
 </div>
 <!-- //emergency -->
+	<!-- Contact Us-->
+	<div class="modal video-modal fade" id="myModalCon" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Contact Us
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+						<div class="modal-body">
+						<p>
+							<label><b>DONOR2RECEIVER</b></label></br>
+							<label><b>Location:</b> ThunderBay, Canada</label></br>
+							<label><b>Call us at :</b>+1 807 356 4561</label></br>
+							<label><b>Mail us at :</b>donortoreceiver@gmail.com</label></br>
+						</p>						
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- Contact Us-->
+		<!-- Contact Us-->
+	<div class="modal video-modal fade" id="myModalCon" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Contact Us
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+						<div class="modal-body">
+						<p>
+							<label><b>DONOR2RECEIVER</b></label></br>
+							<label><b>Location:</b> ThunderBay, Canada</label></br>
+							<label><b>Call us at :</b>+1 807 356 4561</label></br>
+							<label><b>Mail us at :</b>donortoreceiver@gmail.com</label></br>
+						</p>						
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- Contact Us-->
+	<!-- Login -->
+	<div class="modal video-modal fade" id="myModalL" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Login
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+						<div class="modal-body">
+						<div class="col-sm-3 text-center test_img">
+							<img src="images/avatar.png" alt=" " class="img-responsive" /></div>
+							<form action="login" name="loginForm" method="post">
+							<p>
+							
+								  </br><label for="uname"><b>Username</b></label>
+								  <input type="text" placeholder="Enter Username" name="username" required>
+								  <label for="psw"><b>Password</b></label></br>
+								  <input type="password" placeholder=" Enter Password" name="password" required> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp <input type="submit" value="Login" /></br>
+								  							  
+								  <label> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#myModalS">Sign Up</a></label>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+								  <label> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#myModalF">Forgot Password</a></label> 
+								  
+							</p>
+							</form>
+						</div>
+				</div>
+			</div>
+		</div>
+<!-- Login -->
+	<!-- Sign up -->
+		<div class="modal video-modal fade" id="myModalS" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Sign Up
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+						<div class="modal-body">
+						
+						<p>
+							<label for="email"><b>Email</b></label>
+							<input type="text" id="name" placeholder="Enter Email" name="email" required><br><br>
+							<label for="psw"><b>Password</b></label>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+							<input type="password" id="password" placeholder=" Enter Password" name="password" required><br><br>
+							<label for="psw-repeat"><b>Repeat Password</b></label>&nbsp &nbsp
+							<input type="password" placeholder=" Repeat Password" name="psw-repeat" required>					
+							<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+							<p><label id="emailMessageOne"></label></p>
+							<p><button type="submit" onclick="javascript:sendSignup()"class="">Sign Up</button>
+						</P>
+											
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- Sign up-->
+	<!-- forgot password-->
+	<div class="modal video-modal fade" id="myModalF" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Forgot Password
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+						<div class="modal-body">
+						<p>
+							<label for="email"><b>Email ID</b></label>
+							<input type="text" placeholder="Enter Email" name="emailId" id="emailId" required><br>
+							<label id="emailMessage"></label>
+							<p><button type="submit" class="" onclick="javascript:sendEmail()">Send Mail</button>
+						</P>						
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- forgot password-->
 
 	<div class="footer_wthree_agile">
-		<p>© 2018 D2R. All rights reserved </p>
+		<p>A © 2018 Donor2Receiver. All rights reserved</p>
 
 	</div>
 <!-- //footer -->
