@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 
@@ -88,6 +90,47 @@
 			});
 
 		}
+		function sendmail() {
+			var message = document.getElementById("message").value;;
+			var data =document.getElementById("hide").value;
+			$.ajax({
+				type : "POST",
+				url : "bloodemail",
+				data : {
+					"message" : message,
+					"data" : data
+					
+				},
+				beforeSend : function() {
+					
+				},
+				success : function(data) {
+					if (data == "FAIL") {
+						/* $('#alertModal').find('.modal-body p').text(
+						'unable to process the request');
+				$('#alertModal').modal('show'); */
+				document.getElementById('success').innerHTML = 'unable to process the request'
+					setTimeout("$('#myModalC').modal('hide');",3000);
+					} else {
+						/*myModalF */
+						document.getElementById('success').innerHTML = 'Mail sent successfully'
+							setTimeout("$('#myModalC').modal('hide');",3000);
+					}
+				},
+				error : function(request, status, error) {
+					/* $('#alertModal').find('.modal-body p').text(
+					'The request failed:'+ request.responseText);
+			$('#alertModal').modal('show'); */
+					alert("The request failed: " + request.responseText);
+				}
+			});
+
+		}
+		function updatehide(data) {
+			document.getElementById('hide').value = data;
+			
+		}
+	
 	</script>
 	<!--//tags -->
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -108,12 +151,30 @@
 					<li><i class="fa fa-map-marker" aria-hidden="true"></i> Thunder Bay, Canada </li>
 					<li><i class="fa fa-phone" aria-hidden="true"></i> +(1) 807 356 4561</li>
 					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:donortoreceiver@gmail.com">donortoreceiver@gmail.com</a></li>
+					<c:if test="${userdeatils ne null}">
+					<c:choose>
+					<c:when test="${userdeatils.firstName ne null}">
+    					<li><i class="fa fa-user" aria-hidden="true"></i>${userdeatils.firstName}</li>
+ 					<li><i class="fa fa-window-close" aria-hidden="true"> </i><a  onclick ="logout()" id='logout' href="logout">logout</a></li>
+ 					 </c:when>
+ 					<c:otherwise>
+ 					<li><i class="fa fa-user" aria-hidden="true"></i>${userdeatils.email}
+ 					</li>
+ 					<li><i class="fa fa-window-close" aria-hidden="true"> </i><a onclick ="logout()" id='logout' href="logout">logout</a></li>
+ 					 
+    					
+  					</c:otherwise>
+					</c:choose>
+					</c:if>
+					
+					
+					
 				</ul>
 			</div>
 			<div class="header_right">
 				<ul class="forms_right">					
-					<li><a href="#" data-toggle="modal" data-target="#myModalL"> Donate  </a> </li>
-					<li><a href="#" data-toggle="modal" data-target="#myModalL"> Receive  </a> </li>
+					<li><a href="<c:url value="donate" />"> Donate  </a> </li>
+					<li><a href="message"> Receive  </a> </li>
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
@@ -130,7 +191,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-						<a class="navbar-brand" href="index.jsp">
+						<a class="navbar-brand" href="home">
 							<h1><span class="fa fa-stethoscope" aria-hidden="true"></span>Donor2Receiver </h1>
 						</a>
 					</div>
@@ -138,19 +199,30 @@
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<nav>
 							<ul class="nav navbar-nav">
-								<li><a href="index.jsp" class="active">Home</a></li>
+								<li><a href="home" class="active">Home</a></li>
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage accounts <b class="caret"></b></a>
+							<!--  		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage accounts <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li><a href="#" data-toggle="modal" data-target="#myModalL">LOGIN</a></li>										
 										<li class="divider"></li>
 										<li><a href="#" data-toggle="modal" data-target="#myModalS">SIGN UP</a></li>
 										<li class="divider"></li>										
 									</ul>
+									-->
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage accounts <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="#" data-toggle="modal" data-target="#myModalL">Update Profile</a></li>										
+										<li class="divider"></li>
+										<li><a href="#" data-toggle="modal" data-target="#myModalP">Update Password</a></li>	
+										<li class="divider"></li>
+										<li><a href="#" data-toggle="modal" data-target="#">Subscriptions</a></li>
+										<li class="divider"></li>
+										</ul>
 								</li>
-								<li><a href="#">About Us</a></li>								
-								<li><a href="#">Gallery</a></li>								
-								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">My Donations</a></li>								
+								<li><a href="helpReceived">Received</a></li>								
+								<li><a href="#">Help Others</a></li>
+								<!--  <li><a href="logout">logout</a></li> -->
 							</ul>
 						</nav>
 					</div>
@@ -163,79 +235,31 @@
 	<!-- about -->
 	<div class="about">
 		<div class="container">
-			<h3 class="heading-agileinfo">Blood<span> Donate Here </span></h3>
+			<h3 class="heading-agileinfo">Tissue<span> Donate Here </span></h3>
 			<div class="col-md-12 about-w3left">
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<c:forEach items="${postsList}" var="post" varStatus="loop">
 					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingOne">
+						<div class="panel-heading" role="tab" id="heading${loop.index} }">
 							<h5 class="panel-title asd">
-								<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false"
+								<a id="${loop.index }"class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse${loop.index}" aria-expanded="false"
 								    aria-controls="collapseOne">
-								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>assumenda est cliche repren assumenda est cliche repren assumenda est cliche repren
+								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>
+								${post.name}
 							</a>
 							</h5>
 						</div>
-						<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false"
+						<div id="collapse${loop.index }" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading${loop.index }" aria-expanded="false"
 						    style="height: 0px;">
 							<div class="panel-body panel_text">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-								non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-								<p align="center" ><button type="submit" class="" data-toggle="modal" data-target="#myModalC">Contact Now</button>
+								 ${post.message}
+								<p align="center" ><button id="${post.id}" class="" data-toggle="modal" 
+								data-target="#myModalC" onclick="javascript:updatehide(${post.id})">Contact Now</button>
 							</div>							
 						</div>
 					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingTwo">
-							<h5 class="panel-title asd">
-								<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
-								    aria-controls="collapseTwo">
-								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Itaque earum rerum
-							</a>
-							</h5>
-						</div>
-						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false"
-						    style="height: 0px;">
-							<div class="panel-body panel_text">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-								non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-								<p align="center" ><button type="submit" class="" data-toggle="modal" data-target="#myModalC">Contact Now</button>
-							</div>
-						</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingThree">
-							<h5 class="panel-title asd">
-								<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
-								    aria-controls="collapseThree">
-								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Sed tincidunt lorem sed velit
-							</a>
-							</h5>
-						</div>
-						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false"
-						    style="height: 0px;">
-							<div class="panel-body panel_text">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-								non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-								<p align="center" ><button type="submit" class="" data-toggle="modal" data-target="#myModalC">Contact Now</button>
-							</div>
-						</div>
-					</div>
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingFour">
-							<h5 class="panel-title asd">
-								<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true"
-								    aria-controls="collapseFour">
-								<span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>excepturi sint cliche henderit
-							</a>
-							</h5>
-						</div>
-						<div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour" aria-expanded="true">
-							<div class="panel-body panel_text">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-								non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-								<p align="center" ><button type="submit" class="" data-toggle="modal" data-target="#myModalC">Contact Now</button>
-							</div>
-						</div>
+					</c:forEach>
+					
 					</div>
 				</div>
 			</div>
@@ -270,10 +294,12 @@
 						<div class="modal-body">						
 							<p>
 								  <span><label>Message</label></span>
-								  <span><textarea rows="8" cols="70" name="Message" required=""> </textarea></span>
-								  <label><input type="checkbox" checked="checked" name="remember"> I hereby accept to contact the above recepient for blood donation</label></br>	
+								  <span><textarea rows="8" cols="70" name="Message" required="" id="message"> </textarea></span>
+								  <label><input type="checkbox" checked="checked" name="remember" > I hereby accept to contact the above recepient for blood donation</label></br>	
 								  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp 
-								  <input type="button" value="Send Now" /></br>
+								  <input type="hidden" id="hide"/>
+								  <font color="red"><label id="success"></label></font></br>
+								  <input type="button" value="Send Now"  onclick="javascript:sendmail()"/></br>
 						    </p>
 						</div>
 				</div>

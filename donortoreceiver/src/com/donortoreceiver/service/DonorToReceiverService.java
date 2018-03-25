@@ -118,5 +118,26 @@ public class DonorToReceiverService {
 		
 		return donorToReceiverDao.getContatcedList(userName);
 	}
+	public List getReceviverMessages(String string) {
+		
+		return donorToReceiverDao.getReceviverMessages(string);
+	}
+	public boolean sendEmail(String userName, String message, String data) {
+		List<ReceiverMessage> list = donorToReceiverDao.getAllPosts(Arrays.asList(data));
+		/*String template =null;
+		try {
+			template = donorToReceiverUtils.readTemplates("contactReceivers.txt");
+		} catch (IOException e) {
+
+			e.printStackTrace();
+			
+		}
+		template =template.replace("{{userName}}", userName); */
+		//System.out.println("template : "+template);
+		System.out.println("list :"+list);
+		 
+		 donorToReceiverDao.insertTransaction(getListOfTransactions(list,userName));
+		return mail.sendMail(getRecepints(list), "Willing to help", userName,message);
+	}
 
 }

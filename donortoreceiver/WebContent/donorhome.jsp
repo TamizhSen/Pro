@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 
@@ -100,7 +102,7 @@
 
 <body>
 	<!-- header -->
-	<div class="header" id="home">
+<div class="header" id="home">
 		<div class="top_menu_w3layouts">
 		<div class="container">
 			 <div class="header_left">
@@ -108,12 +110,30 @@
 					<li><i class="fa fa-map-marker" aria-hidden="true"></i> Thunder Bay, Canada </li>
 					<li><i class="fa fa-phone" aria-hidden="true"></i> +(1) 807 356 4561</li>
 					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:donortoreceiver@gmail.com">donortoreceiver@gmail.com</a></li>
+					<c:if test="${userdeatils ne null}">
+					<c:choose>
+					<c:when test="${userdeatils.firstName ne null}">
+    					<li><i class="fa fa-user" aria-hidden="true"></i>${userdeatils.firstName}</li>
+ 					<li><i class="fa fa-window-close" aria-hidden="true"> </i><a  onclick ="logout()" id='logout' href="logout">logout</a></li>
+ 					 </c:when>
+ 					<c:otherwise>
+ 					<li><i class="fa fa-user" aria-hidden="true"></i>${userdeatils.email}
+ 					</li>
+ 					<li><i class="fa fa-window-close" aria-hidden="true"> </i><a onclick ="logout()" id='logout' href="logout">logout</a></li>
+ 					 
+    					
+  					</c:otherwise>
+					</c:choose>
+					</c:if>
+					
+					
+					
 				</ul>
 			</div>
 			<div class="header_right">
 				<ul class="forms_right">					
-					<li><a href="#" data-toggle="modal" data-target="#myModalL"> Donate  </a> </li>
-					<li><a href="#" data-toggle="modal" data-target="#myModalL"> Receive  </a> </li>
+					<li><a href="donate"> Donate  </a> </li>
+					<li><a href="message"> Receive  </a> </li>
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
@@ -130,7 +150,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-						<a class="navbar-brand" href="index.jsp">
+						<a class="navbar-brand" href="home">
 							<h1><span class="fa fa-stethoscope" aria-hidden="true"></span>Donor2Receiver </h1>
 						</a>
 					</div>
@@ -138,19 +158,30 @@
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<nav>
 							<ul class="nav navbar-nav">
-								<li><a href="index.jsp" class="active">Home</a></li>
+								<li><a href="home" class="active">Home</a></li>
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage accounts <b class="caret"></b></a>
+							<!--  		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage accounts <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li><a href="#" data-toggle="modal" data-target="#myModalL">LOGIN</a></li>										
 										<li class="divider"></li>
 										<li><a href="#" data-toggle="modal" data-target="#myModalS">SIGN UP</a></li>
 										<li class="divider"></li>										
 									</ul>
+									-->
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage accounts <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="#" data-toggle="modal" data-target="#myModalL">Update Profile</a></li>										
+										<li class="divider"></li>
+										<li><a href="#" data-toggle="modal" data-target="#myModalP">Update Password</a></li>	
+										<li class="divider"></li>
+										<li><a href="#" data-toggle="modal" data-target="#">Subscriptions</a></li>
+										<li class="divider"></li>
+										</ul>
 								</li>
-								<li><a href="#">About Us</a></li>								
-								<li><a href="#">Gallery</a></li>								
-								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">My Donations</a></li>								
+								<li><a href="helpReceived">Received</a></li>								
+								<li><a href="#">Help Others</a></li>
+								<!--  <li><a href="logout">logout</a></li> -->
 							</ul>
 						</nav>
 					</div>
@@ -169,7 +200,7 @@
 				<div class="grid1">
 					<i class="fa fa-tint" aria-hidden="true"></i>
 					<h4>BLOOD</h4>
-					<ul><li class="post-title"><a href="donate_list.html" class="active">Be a Donor Now !!!</a></li></ul></br>
+					<ul><li class="post-title"><a href="blood" class="active">Be a Donor Now !!!</a></li></ul></br>
 					<p>Every two seconds someone in the U.S. needs blood. Approximately 36,000 units of red blood cells are needed every day in the U.S.Nearly 7,000 units of platelets and 10,000 units of plasma are needed daily in the U.S. </p>
 				</div>
 			</div>
@@ -177,7 +208,7 @@
 				<div class="grid1">
 					<i class="fa fa-heartbeat" aria-hidden="true"></i>
 					<h4>ORGAN</h4>					
-					<ul><li class="post-title"><a href="donate_list.html" class="active">Be a Donor Now !!!</a></li></ul></br>
+					<ul><li class="post-title"><a href="organ" class="active">Be a Donor Now !!!</a></li></ul></br>
 					<p>22 people die every day while waiting for a transplant.1 organ donor can save 8 lives and change the lives of more than 50 people.Almost anyone can be an organ donor, regardless of age or medical history. </p>
 				</div>
 			</div>
@@ -185,7 +216,7 @@
 				<div class="grid1">
 					<i class="fa fa-medkit" aria-hidden="true"></i>
 					<h4>TISSUES</h4>					
-					<ul><li class="post-title"><a href="donate_list.html" class="active">Be a Donor Now !!!</a></li></ul></br>
+					<ul><li class="post-title"><a href="tissue" class="active">Be a Donor Now !!!</a></li></ul></br>
 					<p>Tissue donation can greatly enhance a recipient's life quality.Nearly a million tissue transplant surgeries are performed every year in U.S. It is estimated that one in 20 Americans will need some type of tissue transplant.</p>
 				</div>
 			</div>			

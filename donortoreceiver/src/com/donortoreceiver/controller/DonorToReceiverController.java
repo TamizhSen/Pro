@@ -202,7 +202,64 @@ public class DonorToReceiverController {
 		}   
 		return "home";
 	}
+	@RequestMapping(value="blood")
+	public String blood(Model model,HttpServletRequest request,HttpServletResponse response) {
+		try {
+			
+			List postsList = donorToReceiverService.getReceviverMessages("Blood");
+			System.out.println(postsList);
+			model.addAttribute("postsList", postsList);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			return "index";
+		}   
+		return "blood";
+	}
+	@RequestMapping(value="organ")
+	public String organ(Model model,HttpServletRequest request,HttpServletResponse response) {
+		try {
+			
+			List postsList = donorToReceiverService.getReceviverMessages("Organ");
+			System.out.println(postsList);
+			model.addAttribute("postsList", postsList);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			return "index";
+		}   
+		return "organ";
+	}
+	@RequestMapping(value="tissue")
+	public String tissue(Model model,HttpServletRequest request,HttpServletResponse response) {
+		try {
+			
+			List postsList = donorToReceiverService.getReceviverMessages("Tissue");
+			System.out.println(postsList);
+			model.addAttribute("postsList", postsList);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			return "index";
+		}   
+		return "tissue";
+	}
 	
-	
+	@RequestMapping(value="donate")
+	public String donate() {
+		return "donorhome";
+	}
+	@RequestMapping(value="bloodemail",method=RequestMethod.POST)
+	@ResponseBody
+	public String bloodemail(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		
+		String message = request.getParameter("message");
+		String data =request.getParameter("data");
+		String userName = session.getAttribute("userName").toString();
+		System.out.println("inisde controller : "+message +" "+userName + " "+ data);
+		boolean bool = donorToReceiverService.sendEmail(userName,message,data);
+		
+		return bool?"success":"FAIL";
+	}
 	
 }

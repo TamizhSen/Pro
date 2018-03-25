@@ -114,7 +114,7 @@
 			</div>
 			<div class="header_right">
 				<ul class="forms_right">					
-					<li><a href="<c:url value="/posts" />"> Donate  </a> </li>
+					<li><a href="<c:url value="donate" />"> Donate  </a> </li>
 					<li><a href="message"> Receive  </a> </li>
 				</ul>
 			</div>
@@ -189,7 +189,7 @@
 						<h3>With a Touch of <span>Kindness.</span></h3>
 						<div class="header_left">
 							<ul class="forms_right">
-								<li><a href="<c:url value="/posts" />" > Donate  </a> </li>
+								<li><a href="<c:url value="donate" />" > Donate  </a> </li>
 							</ul>
 						</div>
 						<div class="header_right">
@@ -208,7 +208,7 @@
 						<h3>With a Touch of <span>Kindness.</span></h3>
 						<div class="header_left">
 							<ul class="forms_right">
-								<li><a href="<c:url value="/posts" />"> Donate  </a> </li>
+								<li><a href="<c:url value="donate" />"> Donate  </a> </li>
 							</ul>
 						</div>
 						<div class="header_right">
@@ -227,7 +227,7 @@
 						<h3>With a Touch of <span>Kindness.</span></h3>
 						<div class="header_left">
 							<ul class="forms_right">
-								<li><a href="<c:url value="/posts" />"> Donate  </a> </li>
+								<li><a href="<c:url value="donate" />"> Donate  </a> </li>
 							</ul>
 						</div>
 						<div class="header_right">
@@ -246,7 +246,7 @@
 						<h3>With a Touch of <span>Kindness.</span></h3>
 						<div class="header_left">
 							<ul class="forms_right">
-								<li class><a href="<c:url value="/posts" />"> Donate  </a> </li>
+								<li class><a href="<c:url value="donate" />"> Donate  </a> </li>
 							</ul>
 						</div>
 						<div class="header_right">
@@ -314,7 +314,7 @@
 						<li> * Every two seconds someone in the U.S. needs blood. </li>
 						<li> * Approximately 36,000 units of red blood cells are needed every day in the U.S.	</li>
 						<li> * Nearly 7,000 units of platelets and 10,000 units of plasma are needed daily in the U.S. </li>
-						<li class="post-title">Be a Donor Now !!!</li>
+						<li class="post-title"><a href="blood">Be a Donor Now !!!</a></li>
 					</ul>
 				</div>
 			</div>
@@ -326,7 +326,7 @@
 				<li> * 22 people die every day while waiting for a transplant. </li>
 				<li> * 1 organ donor can save the lives of 8 people and change the lives of more than 50 people.</li>
 				<li> * Almost anyone can be an organ donor, regardless of age,race or medical history.</li>
-				<li class="post-title">Be a Donor Now !!!</li>
+				<li class="post-title"><a href="organ">Be a Donor Now !!!</a></li>
 				</ul>
 				</div>
 			</div>
@@ -338,7 +338,7 @@
 				<li> * Tissue donation can greatly enhance a recipient's life quality.</li>
 				<li> * Nearly a million tissue transplant surgeries are performed every year in U.S</li>
 				<li> * It is estimated that one in 20 Americans will need some type of tissue transplant.</li>
-				<li class="post-title">Be a Donor Now !!!</li>
+				<li class="post-title"><a href="tissue">Be a Donor Now !!!</a></li>
 				</ul>
 				</div>
 			</div>

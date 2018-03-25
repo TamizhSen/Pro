@@ -239,4 +239,16 @@ public class DonorToReceiverDao implements IDonorToReceiverDao {
 		}
 		return list;
 	}
+	@Override
+	public List getReceviverMessages(String string) {
+		List<ReceiverMessage> list = null;
+		String sql ="select idReceiver,category,message,name,phone,approved,username from receiver where approved='NO' and category=?";
+		try {
+			Object[] params = new Object[] {string};
+			list = jdbcTemplate.query(sql,new ReceiverMessageMapper(), params);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

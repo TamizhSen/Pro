@@ -29,5 +29,6 @@ public interface IDonorToReceiverDao {
 	public boolean updateReceiverMessage(List<String> ids);
 	public List<ReceiverMessage> getAllPosts(String all);
 	public List<ReceiverMessage> getAllPosts(List<String> asList);
+	public List getReceviverMessages(String string);
 	
 }
