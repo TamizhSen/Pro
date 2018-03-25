@@ -148,7 +148,7 @@
 										<li class="divider"></li>										
 									</ul>
 								</li>
-								<li><a href="#">About Us</a></li>								
+								<li><a href="about.jsp">About Us</a></li>								
 								<li><a href="#">Gallery</a></li>								
 								<li><a href="#" data-toggle="modal" data-target="#myModalCon">Contact Us</a></li>								
 							</ul>
