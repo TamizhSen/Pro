@@ -150,7 +150,7 @@
 								</li>
 								<li><a href="#">About Us</a></li>								
 								<li><a href="#">Gallery</a></li>								
-								<li><a href="#">Contact Us</a></li>
+								<li><a href="#" data-toggle="modal" data-target="#myModalCon">Contact Us</a></li>								
 							</ul>
 						</nav>
 					</div>
@@ -679,6 +679,26 @@
 			</div>
 		</div>
 	<!-- forgot password-->
+	<!-- Contact Us-->
+	<div class="modal video-modal fade" id="myModalCon" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Contact Us
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+						<div class="modal-body">
+						<p>
+							<label><b>DONOR2RECEIVER</b></label></br>
+							<label><b>Location:</b> ThunderBay, Canada</label></br>
+							<label><b>Call us at :</b>+1 807 356 4561</label></br>
+							<label><b>Mail us at :</b>donortoreceiver@gmail.com</label></br>
+						</p>						
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- Contact Us-->
 	
 
 
