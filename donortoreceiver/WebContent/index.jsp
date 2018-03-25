@@ -358,48 +358,6 @@
 	</div>
 </div>
 <!-- //emergency -->
-<!-- services -->
-<!-- div class="services">
-<div class="container">
-		<h3 class="heading-agileinfo">Therapies & Treatments<span>We offer extensive medical procedures to outbound and inbound patients.</span></h3>	
-		<div class="services-top-grids">
-			<div class="col-md-6">
-				<div class="grid1">
-					<i class="fa fa-heartbeat" aria-hidden="true"></i>
-					<h4>Anxiety</h4>
-					<p>Anxiety can be treated with medication, but several mind-body approaches may also be effective. Hypnosis is sometimes used along with cognitive behavioral therapy to treat anxiety. It can help people focus their attention, rethink problems, relax, and respond to helpful suggestions. </p>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="grid1">
-					<i class="fa fa-user-md" aria-hidden="true"></i>
-					<h4>Stress Management</h4>
-					<p>Managing stress / What does stress feel like? When we are stressed, our bodies may show physical signs of tension. Sometimes irritation, anger, nervousness or sadness can be a clue you are feeling stressed. You may have difficulty concentrating or feel like you can't stop worrying about something. </p>
-				</div>
-			</div>
-			
-			<div class="clearfix"></div>
-		</div>
-		<div class="services-bottom-grids">
-			<div class="col-md-6">
-				<div class="grid1">
-					<i class="fa fa-wheelchair-alt" aria-hidden="true"></i>
-					<h4>Depression</h4>
-					<p>While some illnesses have a specific medical cause, making treatment straightforward, depression is more complicated. Depression is not just the result of a chemical imbalance in the brain that can be simply cured with medication. It's caused by a combination of biological, psychological, and social factors. </p>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="grid1">
-					<i class="fa fa-ambulance" aria-hidden="true"></i>
-					<h4>Support Group</h4>
-					<p>Support groups bring people together who are living with similar dependency issues. This peer to peer support will often be facilitated by a trained professional or volunteer. Members of the group share their experiences and receive practical tips. All of our groups are offered free of charge, but registration is required. </p>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</div-->
-<!-- //services -->
 <!-- Clients -->
 <div class="tesimonials">
 <div class="tesimonials_tp">
@@ -491,90 +449,6 @@
 		</div>
 	</div>
 </div>
-<!-- //Clients -->
-<!--/icons-->
-<!--
-	<div class="banner-bottom">
-		<div class="container">
-			<div class="tittle_head_w3layouts">
-				<h3 class="heading-agileinfo">Case Studies<span>We offer extensive medical procedures to outbound and inbound patients.</span></h3>
-			</div>
-			<div class="inner_sec_info_agileits_w3">
-				<div class="col-md-4 grid_info">
-					<div class="icon_info">
-						<img src="images/g4.jpg" alt=" " class="img-responsive">
-						<h5>Nutrition Reference</h5>
-						<p>Lorem ipsum dolor sit amet,vehicula vel sapien et, feugiat sapien amet.</p>
-						<a href="#" class="read-agileits" data-toggle="modal" data-target="#myModal">Read More</a>
-					</div>
-				</div>
-				<div class="col-md-4 grid_info">
-					<div class="icon_info">
-						<img src="images/g7.jpg" alt=" " class="img-responsive">
-						<h5>Injury Prevention</h5>
-						<p>Lorem ipsum dolor sit amet,vehicula vel sapien et, feugiat sapien amet.</p>
-						<a href="#" class="read-agileits" data-toggle="modal" data-target="#myModal">Read More</a>
-					</div>
-				</div>
-				<div class="col-md-4 grid_info">
-					<div class="icon_info">
-						<img src="images/g6.jpg" alt=" " class="img-responsive">
-						<h5>Catheterization Lab</h5>
-						<p>Lorem ipsum dolor sit amet,vehicula vel sapien et, feugiat sapien amet.</p>
-						<a href="#" class="read-agileits" data-toggle="modal" data-target="#myModal">Read More</a>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-	-->
-	<!--//icons-->
-
-	<!-- footer -->
-	<!-- div class="footer_top_agile_w3ls">
-		<div class="container">
-			<div class="col-md-3 footer_grid">
-				<h3>About Us</h3>
-				<p>We are a Non Profit Organization,Working towards the welfare of the human race.</p>				
-			</div>
-			<div class="col-md-3 footer_grid">
-				<h3>Latest News</h3>
-				<ul class="footer_grid_list">
-					<li><i class="fa fa-angle-right" aria-hidden="true"></i>
-						<a href="#" data-toggle="modal" data-target="#myModal">Lorem ipsum neque vulputate </a>
-					</li>
-					<li><i class="fa fa-angle-right" aria-hidden="true"></i>
-						<a href="#" data-toggle="modal" data-target="#myModal">Dolor amet sed quam vitae</a>
-					</li>
-					<li><i class="fa fa-angle-right" aria-hidden="true"></i>
-						<a href="#" data-toggle="modal" data-target="#myModal">Lorem ipsum neque, vulputate </a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-md-3 footer_grid">
-				<h3>Contact Info</h3>
-				<ul class="address">
-					<li><i class="fa fa-map-marker" aria-hidden="true"></i>Thunder Bay,Canada </li>
-					<li><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:customer.care@d2r.com">customer.care@d2r.com</a></li>
-					<li><i class="fa fa-phone" aria-hidden="true"></i>+1 807 123 1234</li>
-				</ul>
-			</div>
-			<div class="col-md-3 footer_grid ">
-				<h3>Sign up for our Newsletter</h3>
-				<p>Get Started For Free</p>
-				<div class="footer_grid_right">
-
-					<form action="#" method="post">
-						<input type="email" name="Email" placeholder="Email Address..." required="">
-						<input type="submit" value="Submit">
-					</form>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
-
-		</div>
-	</div-->
 	<div class="footer_wthree_agile">
 		<p>A © 2018 Donor2Receiver. All rights reserved </p>
 	</div>
