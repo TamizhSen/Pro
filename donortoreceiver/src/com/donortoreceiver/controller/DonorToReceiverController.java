@@ -200,7 +200,7 @@ public class DonorToReceiverController {
 			e.printStackTrace();
 			return "index";
 		}   
-		return "home";
+		return "codes";
 	}
 	@RequestMapping(value="blood")
 	public String blood(Model model,HttpServletRequest request,HttpServletResponse response) {

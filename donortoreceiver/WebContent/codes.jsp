@@ -1,4 +1,5 @@
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 
@@ -109,30 +110,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</tr>
 					</thead>
 					<tbody>
+					<c:forEach items="${postsList}" var="post" varStatus="loop">
 						<tr>
-							<td>1</td>
-							<td>Mark</td>
-							<td>Otto</td>
-							<td>@mdo</td>
-							<td>@mdo</td>
-							<td>@mdo</td>
+							<td>${loop.index}</td>
+							<td>${post.name}</td>
+							<td>${post.category}</td>
+							<td>${post.contactedOn}</td>
+							<td>${post.email}</td>
+							<td>${post.donorEmail}</td>
 						</tr>
-						<tr>
-							<td>2</td>
-							<td>Jacob</td>
-							<td>Thornton</td>
-							<td>@fat</td>
-							<td>@mdo</td>
-							<td>@mdo</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Larry</td>
-							<td>the Bird</td>
-							<td>@twitter</td>
-							<td>@mdo</td>
-							<td>@mdo</td>
-						</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
