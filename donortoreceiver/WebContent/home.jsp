@@ -156,10 +156,10 @@
 										<li class="divider"></li>
 										<li><a href="#" data-toggle="modal" data-target="#myModalP">Update Password</a></li>	
 										</ul>
-								</li>
-								<li><a href="#">My Donations</a></li>								
-								<li><a href="helpReceived">Received</a></li>								
-								<li><a href="#">Help Others</a></li>
+								</li>								
+								<li><a href="helpReceived">Received</a></li>	
+								<li><a href="#" data-toggle="modal" data-target="#myModalCon">Contact Us</a></li>							
+								<li><a href="donate">Help Others</a></li>
 								<!--  <li><a href="logout">logout</a></li> -->
 							</ul>
 						</nav>
@@ -735,6 +735,26 @@
 			</div>
 		</div>
 	<!-- Sign up-->
+	<!-- Contact Us-->
+	<div class="modal video-modal fade" id="myModalCon" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Contact Us
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+						<div class="modal-body">
+						<p>
+							<label><b>DONOR2RECEIVER</b></label></br>
+							<label><b>Location:</b> ThunderBay, Canada</label></br>
+							<label><b>Call us at :</b>+1 807 356 4561</label></br>
+							<label><b>Mail us at :</b>donortoreceiver@gmail.com</label></br>
+						</p>						
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- Contact Us-->
 	<!-- forgot password-->
 	<div class="modal video-modal fade" id="myModalF" tabindex="-1" role="dialog" aria-labelledby="myModal">
 			<div class="modal-dialog" role="document">
