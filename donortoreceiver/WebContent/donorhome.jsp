@@ -173,15 +173,14 @@
 										<li><a href="#" data-toggle="modal" data-target="#myModalL">Update Profile</a></li>										
 										<li class="divider"></li>
 										<li><a href="#" data-toggle="modal" data-target="#myModalP">Update Password</a></li>	
-										<li class="divider"></li>
-										<li><a href="#" data-toggle="modal" data-target="#">Subscriptions</a></li>
-										<li class="divider"></li>
 										</ul>
-								</li>
-								<li><a href="#">My Donations</a></li>								
-								<li><a href="helpReceived">Received</a></li>								
-								<li><a href="#">Help Others</a></li>
+								</li>								
+								<li><a href="helpReceived">Received</a></li>
+								<li><a href="about.jsp" >About Us</a></li>								
+								<li><a href="faq.jsp">FAQ</a></li>						
+								<li><a href="#" data-toggle="modal" data-target="#myModalCon">Contact Us</a></li>
 								<!--  <li><a href="logout">logout</a></li> -->
+							</ul>
 							</ul>
 						</nav>
 					</div>

@@ -379,6 +379,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	<!-- Contact Us-->
 	<!-- forgot password-->
+	
 	<div class="modal video-modal fade" id="myModalF" tabindex="-1" role="dialog" aria-labelledby="myModal">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">

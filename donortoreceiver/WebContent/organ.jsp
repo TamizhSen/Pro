@@ -214,14 +214,12 @@
 										<li><a href="#" data-toggle="modal" data-target="#myModalL">Update Profile</a></li>										
 										<li class="divider"></li>
 										<li><a href="#" data-toggle="modal" data-target="#myModalP">Update Password</a></li>	
-										<li class="divider"></li>
-										<li><a href="#" data-toggle="modal" data-target="#">Subscriptions</a></li>
-										<li class="divider"></li>
 										</ul>
-								</li>
-								<li><a href="#">My Donations</a></li>								
-								<li><a href="helpReceived">Received</a></li>								
-								<li><a href="#">Help Others</a></li>
+								</li>								
+								<li><a href="helpReceived">Received</a></li>
+								<li><a href="about.jsp" >About Us</a></li>								
+								<li><a href="faq.jsp">FAQ</a></li>						
+								<li><a href="#" data-toggle="modal" data-target="#myModalCon">Contact Us</a></li>
 								<!--  <li><a href="logout">logout</a></li> -->
 							</ul>
 						</nav>
@@ -269,7 +267,7 @@
 <!-- //about -->
 
 	<div class="footer_wthree_agile">
-		<p>A Â© 2018 Donor2Receiver. All rights reserved </p>
+		<p>A © 2018 Donor2Receiver. All rights reserved </p>
 	</div>
 	
 	<!-- js -->
@@ -282,6 +280,69 @@
 		});
 	</script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<!-- Login -->
+	<!-- Update Password-->
+		<div class="modal video-modal fade" id="myModalP" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Update Password
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+						<div class="modal-body">
+						<p>
+							<label for="psw"><b>Password</b></label>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+							<input type="password" placeholder=" Enter Password" name="psw" id="psw" required><br><br>
+							<label for="psw-repeat"><b>Repeat Password</b></label>&nbsp &nbsp
+							<input type="password" placeholder=" Repeat Password" name="psw-repeat" id="rpt" required>	
+							<p><label id="passwordUpdated"></label></p>
+							<p><button type="submit" onclick="javascript:updatePassword()" class="">Update</button>
+						</P>						
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- Sign up-->
+	<!-- Contact Us-->
+	<div class="modal video-modal fade" id="myModalCon" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Contact Us
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+						<div class="modal-body">
+						<p>
+							<label><b>DONOR2RECEIVER</b></label></br>
+							<label><b>Location:</b> ThunderBay, Canada</label></br>
+							<label><b>Call us at :</b>+1 807 356 4561</label></br>
+							<label><b>Mail us at :</b>donortoreceiver@gmail.com</label></br>
+						</p>						
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- Contact Us-->
+	<!-- forgot password-->
+	<div class="modal video-modal fade" id="myModalF" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Forgot Password
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+						<div class="modal-body">
+						<p>
+							<label for="email"><b>Email ID</b></label>
+							<input type="text" placeholder="Enter Email" name="email" required><br>
+							<p><button type="submit" class="">Send Mail</button>
+						</P>						
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- forgot password-->
+	
 	
 <!-- Donate Now -->
 	<div class="modal video-modal fade" id="myModalC" tabindex="-1" role="dialog" aria-labelledby="myModal">
