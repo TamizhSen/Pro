@@ -4,12 +4,11 @@
 <html>
 
 <head>
-	<title>D2R</title>
+	<title>Donor2Receiver</title>
 	<!--/tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="New Clinic Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta name="keywords" content="DonorToReceiver" />
 	<script type="application/x-javascript">
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
@@ -17,6 +16,79 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		function hideURLbar() {
 			window.scrollTo(0, 1);
+		}
+		function sendEmail() {
+			var emailId = document.getElementById("emailId").value;
+			
+			$.ajax({
+				type : "POST",
+				url : "forgotPassword",
+				data : {
+					"emailId" : emailId,
+					
+				},
+				beforeSend : function() {
+					
+				},
+				success : function(data) {
+					if (data == "FAIL") {
+						/* $('#alertModal').find('.modal-body p').text(
+						'unable to process the request');
+				$('#alertModal').modal('show'); */
+				document.getElementById('emailMessage').innerHTML = 'unable to process the request'
+					setTimeout("$('#myModalF').modal('hide');",3000);
+					} else {
+						/*myModalF */
+						document.getElementById('emailMessage').innerHTML = 'Password sent to your email!!'
+							setTimeout("$('#myModalF').modal('hide');",3000);
+					}
+				},
+				error : function(request, status, error) {
+					/* $('#alertModal').find('.modal-body p').text(
+					'The request failed:'+ request.responseText);
+			$('#alertModal').modal('show'); */
+					alert("The request failed: " + request.responseText);
+				}
+			});
+
+		}
+		
+		function sendSignup() {
+			var emailId = document.getElementById("name").value;
+			var password = document.getElementById("password").value;
+			
+			$.ajax({
+				type : "POST",
+				url : "signUp",
+				data : {
+					"email" : emailId,
+					"password" : password
+					
+				},
+				beforeSend : function() {
+					
+				},
+				success : function(data) {
+					if (data == "FAIL") {
+						/* $('#alertModal').find('.modal-body p').text(
+						'unable to process the request');
+				$('#alertModal').modal('show'); */
+				document.getElementById('emailMessageOne').innerHTML = 'unable to process the request'
+					setTimeout("$('#myModalS').modal('hide');",3000);
+					} else {
+						/*myModalF */
+						document.getElementById('emailMessageOne').innerHTML = 'SignUp successfull please sign in'
+							setTimeout("$('#myModalS').modal('hide');",3000);
+					}
+				},
+				error : function(request, status, error) {
+					/* $('#alertModal').find('.modal-body p').text(
+					'The request failed:'+ request.responseText);
+			$('#alertModal').modal('show'); */
+					alert("The request failed: " + request.responseText);
+				}
+			});
+
 		}
 	</script>
 	<!--//tags -->
@@ -32,22 +104,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- header -->
 	<div class="header" id="home">
 		<div class="top_menu_w3layouts">
-<div class="container">
-			<div class="header_left">
+		<div class="container">
+			 <div class="header_left">
 				<ul>
-					<li><i class="fa fa-map-marker" aria-hidden="true"></i> 1143 New York, USA</li>
-					<li><i class="fa fa-phone" aria-hidden="true"></i> +(010) 221 918 811</li>
-					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
+					<li><i class="fa fa-map-marker" aria-hidden="true"></i> Thunder Bay, Canada </li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i> +(1) 807 356 4561</li>
+					<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:donortoreceiver@gmail.com">donortoreceiver@gmail.com</a></li>
 				</ul>
 			</div>
 			<div class="header_right">
-				<ul class="forms_right">
-					<li><a href="appointment.html"> Make an Appointment</a> </li>
+				<ul class="forms_right">					
+					<li><a href="#" data-toggle="modal" data-target="#myModalL"> Donate  </a> </li>
+					<li><a href="#" data-toggle="modal" data-target="#myModalL"> Receive  </a> </li>
 				</ul>
-
 			</div>
 			<div class="clearfix"> </div>
-			</div>
+			</div> 
 		</div>
 
 		<div class="content white">
@@ -60,30 +132,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-						<a class="navbar-brand" href="index.html">
-							<h1><span class="fa fa-stethoscope" aria-hidden="true"></span>New Clinic </h1>
+						<a class="navbar-brand" href="index.jsp">
+							<h1><span class="fa fa-stethoscope" aria-hidden="true"></span>Donor2Receiver </h1>
 						</a>
 					</div>
 					<!--/.navbar-header-->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<nav>
 							<ul class="nav navbar-nav">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="about.html">About</a></li>
-								
-								<li><a href="departments.html">Departments</a></li>
-								<li><a href="gallery.html">Gallery</a></li>
-								<li class="dropdown active">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
+								<li><a href="index.jsp">Home</a></li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage accounts <b class="caret"></b></a>
 									<ul class="dropdown-menu">
-										<li><a href="codes.html">Codes</a></li>
+										<li><a href="#" data-toggle="modal" data-target="#myModalL">LOGIN</a></li>										
 										<li class="divider"></li>
-										<li><a href="icons.html">Icons</a></li>
-										<li class="divider"></li>
-										
+										<li><a href="#" data-toggle="modal" data-target="#myModalS">SIGN UP</a></li>									
 									</ul>
 								</li>
-								<li><a href="mail.html">Mail Us</a></li>
+								<li><a href="#" class="active">Received</a></li>
+								<li><a href="about" >About Us</a></li>								
+								<li><a href="faq">FAQ</a></li>								
+								<li><a href="#" data-toggle="modal" data-target="#myModalCon">Contact Us</a></li>								
 							</ul>
 						</nav>
 					</div>
@@ -93,7 +162,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</nav>
 		</div>
 	</div>
-
+	<!-- banner -->
+<div class="about">
+		
 			<div class="page-header">
 				<h3 align="center"class="bars">Your History</h3>
 			</div>
@@ -123,40 +194,130 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</tbody>
 				</table>
 			</div>
-			<p></p>			
-		</div>
-	</div>
+			<p></p>		
+				<div class="clearfix"> </div>
+	</div>	
 	<!-- //typography -->
-	<!-- footer -->
-	
 	<div class="footer_wthree_agile">
-		<p>© 2018 D2R All rights reserved <p>
+		<p>A © 2018 Donor2Receiver. All rights reserved</p>
 	</div>
-
-	<!-- //footer -->
-	<!-- bootstrap-modal-pop-up -->
-	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					New Clinic
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div>
-					<div class="modal-body">
-						<img src="images/g7.jpg" alt=" " class="img-responsive" />
-						<p>Ut enim ad minima veniam, quis nostrum 
-							exercitationem ullam corporis suscipit laboriosam, 
-							nisi ut aliquid ex ea commodi consequatur? Quis autem 
-							vel eum iure reprehenderit qui in ea voluptate velit 
-							esse quam nihil molestiae consequatur, vel illum qui 
-							dolorem eum fugiat quo voluptas nulla pariatur.
-							<i>" Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
-								esse quam nihil molestiae consequatur.</i></p>
+	<!-- Contact Us-->
+	<div class="modal video-modal fade" id="myModalCon" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Contact Us
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
 					</div>
+						<div class="modal-body">
+						<p>
+							<label><b>DONOR2RECEIVER</b></label></br>
+							<label><b>Location:</b> ThunderBay, Canada</label></br>
+							<label><b>Call us at :</b>+1 807 356 4561</label></br>
+							<label><b>Mail us at :</b>donortoreceiver@gmail.com</label></br>
+						</p>						
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-<!-- //bootstrap-modal-pop-up --> 
+	<!-- Contact Us-->
+		<!-- Contact Us-->
+	<div class="modal video-modal fade" id="myModalCon" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Contact Us
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+						<div class="modal-body">
+						<p>
+							<label><b>DONOR2RECEIVER</b></label></br>
+							<label><b>Location:</b> ThunderBay, Canada</label></br>
+							<label><b>Call us at :</b>+1 807 356 4561</label></br>
+							<label><b>Mail us at :</b>donortoreceiver@gmail.com</label></br>
+						</p>						
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- Contact Us-->
+	<!-- Login -->
+	<div class="modal video-modal fade" id="myModalL" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Login
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+						<div class="modal-body">
+						<div class="col-sm-3 text-center test_img">
+							<img src="images/avatar.png" alt=" " class="img-responsive" /></div>
+							<form action="login" name="loginForm" method="post">
+							<p>
+							
+								  </br><label for="uname"><b>Username</b></label>
+								  <input type="text" placeholder="Enter Username" name="username" required>
+								  <label for="psw"><b>Password</b></label></br>
+								  <input type="password" placeholder=" Enter Password" name="password" required> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp <input type="submit" value="Login" /></br>
+								  							  
+								  <label> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#myModalS">Sign Up</a></label>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+								  <label> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#myModalF">Forgot Password</a></label> 
+								  
+							</p>
+							</form>
+						</div>
+				</div>
+			</div>
+		</div>
+<!-- Login -->
+	<!-- Sign up -->
+		<div class="modal video-modal fade" id="myModalS" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Sign Up
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+						<div class="modal-body">
+						
+						<p>
+							<label for="email"><b>Email</b></label>
+							<input type="text" id="name" placeholder="Enter Email" name="email" required><br><br>
+							<label for="psw"><b>Password</b></label>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+							<input type="password" id="password" placeholder=" Enter Password" name="password" required><br><br>
+							<label for="psw-repeat"><b>Repeat Password</b></label>&nbsp &nbsp
+							<input type="password" placeholder=" Repeat Password" name="psw-repeat" required>					
+							<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+							<p><label id="emailMessageOne"></label></p>
+							<p><button type="submit" onclick="javascript:sendSignup()"class="">Sign Up</button>
+						</P>
+											
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- Sign up-->
+	<!-- forgot password-->
+	<div class="modal video-modal fade" id="myModalF" tabindex="-1" role="dialog" aria-labelledby="myModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						Forgot Password
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					</div>
+						<div class="modal-body">
+						<p>
+							<label for="email"><b>Email ID</b></label>
+							<input type="text" placeholder="Enter Email" name="emailId" id="emailId" required><br>
+							<label id="emailMessage"></label>
+							<p><button type="submit" class="" onclick="javascript:sendEmail()">Send Mail</button>
+						</P>						
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- forgot password-->	
+<!-- //footer -->
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script>
