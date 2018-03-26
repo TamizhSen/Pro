@@ -157,9 +157,10 @@
 										<li><a href="#" data-toggle="modal" data-target="#myModalP">Update Password</a></li>	
 										</ul>
 								</li>								
-								<li><a href="helpReceived">Received</a></li>	
-								<li><a href="#" data-toggle="modal" data-target="#myModalCon">Contact Us</a></li>							
-								<li><a href="donate">Help Others</a></li>
+								<li><a href="helpReceived">Received</a></li>
+								<li><a href="about.jsp" >About Us</a></li>								
+								<li><a href="faq.jsp">FAQ</a></li>						
+								<li><a href="#" data-toggle="modal" data-target="#myModalCon">Contact Us</a></li>
 								<!--  <li><a href="logout">logout</a></li> -->
 							</ul>
 						</nav>
